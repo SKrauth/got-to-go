@@ -1,11 +1,5 @@
 var app = angular.module("gotToGoApp", ["ngRoute"]);
 
-app.controller("HomeController", function(){});
-
-app.controller("InputController", function(){});
-
-app.controller("OutputController", function(){});
-
 app.config(function($routeProvider){
     $routeProvider
     .when("/home", {
