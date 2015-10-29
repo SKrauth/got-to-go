@@ -6,22 +6,22 @@
     <p>Would you use an app to help you find a quality public restroom?</p>
     <div class="radio">
         <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-model="yes">
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-click="showCon('con1')">
             Yes
         </label>
     </div>
     <div class="radio">
         <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-model="no">
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-click="showCon('con2')">
             No
         </label>
     </div>
 </div>
 
-<div class="well" ng-show="yes == 'true'">
+<div class="well" ng-show="clickOn=='con1'">
     <p>You clicked yes!</p>
 </div>
 
-<div class="well" ng-show="no === 'true'">
+<div class="well" ng-show="clickOn=='con2'">
     <p>You clicked no!</p>
 </div>
