@@ -18,8 +18,47 @@
     </div>
 </div>
 
-<div class="well" ng-show="clickOn=='con1'">
-    <p>You clicked yes!</p>
+<div class="well bs-component" ng-show="clickOn=='con1'">
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>So you want this app? Help us build it right.</legend>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Would you pay for this app?</label>
+               <div class="col-lg-9">
+                   <select class="form-control input-sm">
+                        <option value=""></option>
+                        <option value="no">No</option>
+                        <option value="yes<5">Yes, but no more than $5</option>
+                        <option value="yes<10">Yes, but no more than $10</option>
+                        <option value="yes>10">Yes, even if it is more than $10</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">When would you use this app?</label>
+                <div class="col-lg-9">
+                    <select class="form-control input-sm">
+                        <option value=""></option>
+                        <option value="daily">Daily</option>
+                        <option value="travel">While Traveling</option>
+                        <option value="emergency">During Emergencies</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Other</label>
+                <div class="col-lg-9">
+                    <textarea rows="3" class="form-control"></textarea>
+                    <span class="help-block">Any other feedback would be greatly appreciated.</span>
+                </div>
+            </div>
+            <div class="col-lg-9 col-lg-offset-3">
+                <button type="reset" class="btn btn-defaul">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </fieldset>
+    </form>
 </div>
 
 <div class="well" ng-show="clickOn=='con2'">
