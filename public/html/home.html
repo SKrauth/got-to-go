@@ -61,6 +61,32 @@
     </form>
 </div>
 
-<div class="well" ng-show="clickOn=='con2'">
-    <p>You clicked no!</p>
+<div class="well bs-component" ng-show="clickOn=='con2'">
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>So this isn't for you? Great! Would you mind sharing more?</legend>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Is there something missing that would make you interested in this?</label>
+                <div class="col-lg-9">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+               <label class="col-lg-3 control-label">Something, something, dark side?</label>
+                <div class="col-lg-9">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Any further thoughts?</label>
+                <div class="col-lg-9">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-lg-9 col-lg-offset-3">
+                <button type="reset" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </fieldset>
+    </form>
 </div>
