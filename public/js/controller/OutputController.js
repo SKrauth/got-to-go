@@ -5,7 +5,6 @@ app.controller("OutputController", function($http, $scope){
         $http.get("/api/restrooms")
             .then(function(response){
                 $scope.rrRating = response.data;
-                console.log($scope.rrRating);
             });
     };
     

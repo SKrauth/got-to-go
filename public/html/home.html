@@ -2,30 +2,30 @@
     <p>Have you ever been out in public and needed to use the restroom but not known where to go? Well we are looking into a solution for you. Our goal is to create a public restroom app that will help you with you're restroom needs. But before we spend the time making an app no one will use we'd like to get some feedback and find out what you want. So fill out our survey, let us know what you want, and then look for our app in the future. Thank you.</p>
 </div>
 
-<div class="well">
-    <p>Would you use an app to help you find a quality public restroom?</p>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-click="showCon('con1')">
-            Yes
-        </label>
+<form ng-submit="submitSurvey()">
+    <div class="well">
+        <p>Would you use an app to help you find a quality public restroom?</p>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-click="showCon('con1')" ng-model="survey.interested">
+                Yes
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-click="showCon('con2')" ng-model="survey.interested">
+                No
+            </label>
+        </div>
     </div>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-click="showCon('con2')">
-            No
-        </label>
-    </div>
-</div>
 
-<div class="well bs-component" ng-show="clickOn=='con1'">
-    <form class="form-horizontal">
+    <div class="well bs-component" ng-show="clickOn=='con1'">
         <fieldset>
             <legend>So you want this app? Help us build it right.</legend>
             <div class="form-group">
                 <label class="col-lg-3 control-label">Would you pay for this app?</label>
                <div class="col-lg-9">
-                   <select class="form-control input-sm">
+                   <select class="form-control input-sm" ng-model="survey.yes.price">
                         <option value=""></option>
                         <option value="no">No</option>
                         <option value="yes<5">Yes, but no more than $5</option>
@@ -37,7 +37,7 @@
             <div class="form-group">
                 <label class="col-lg-3 control-label">When would you use this app?</label>
                 <div class="col-lg-9">
-                    <select class="form-control input-sm">
+                    <select class="form-control input-sm" ng-model="survey.yes.time">
                         <option value=""></option>
                         <option value="daily">Daily</option>
                         <option value="travel">While Traveling</option>
@@ -49,44 +49,41 @@
             <div class="form-group">
                 <label class="col-lg-3 control-label">Other</label>
                 <div class="col-lg-9">
-                    <textarea rows="3" class="form-control"></textarea>
+                    <textarea rows="3" class="form-control" ng-model="survey.yes.other"></textarea>
                     <span class="help-block">Any other feedback would be greatly appreciated.</span>
                 </div>
             </div>
-            <div class="col-lg-9 col-lg-offset-3">
-                <button type="reset" class="btn btn-defaul">Cancel</button>
+            <div class="col-lg-9 col-lg-offset-3">    
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </fieldset>
-    </form>
-</div>
+    </div>
 
-<div class="well bs-component" ng-show="clickOn=='con2'">
-    <form class="form-horizontal">
+    <div class="well bs-component" ng-show="clickOn=='con2'">
         <fieldset>
             <legend>So this isn't for you? Great! Would you mind sharing more?</legend>
             <div class="form-group">
                 <label class="col-lg-3 control-label">Is there something missing that would make you interested in this?</label>
                 <div class="col-lg-9">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" ng-model="survey.no.increaseInterest">
                 </div>
             </div>
             <div class="form-group">
-               <label class="col-lg-3 control-label">Something, something, dark side?</label>
+               <label class="col-lg-3 control-label">How often do you use a public toilet?</label>
                 <div class="col-lg-9">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" ng-model="survey.no.frequency">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-lg-3 control-label">Any further thoughts?</label>
                 <div class="col-lg-9">
-                    <input type="text" class="form-control">
+                    <textarea rows="3" class="form-control" ng-model="survey.no.other"></textarea>
+                    <span class="help-block">Any other feedback would be greatly appreciated.</span>
                 </div>
             </div>
             <div class="col-lg-9 col-lg-offset-3">
-                <button type="reset" class="btn btn-default">Cancel</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </fieldset>
-    </form>
-</div>
+    </div>
+</form>

@@ -1,34 +1,9 @@
 var express = require("express");
 var server = express();
 var mongoose = require("mongoose");
+var Survey = require("./models/surveyModel");
+var Restroom = require("./models/restroomModel");
 var bodyParser = require("body-parser");
-var Schema = mongoose.Schema;
-
-var restroomSchema = new Schema ({
-    locAddress: String,
-    locDescription: String,
-    gender: String,
-    sanitation: {
-        clean: Number,
-        smell: Number,
-        soap: Boolean,
-        toiletPaper: Boolean,
-        paperTowels: Boolean
-    },
-    facilities: {
-        numOfStalls: Number,
-        numOfSinks: Number,
-        privacy: Number
-    },
-    sundries: {
-        tpType: String,
-        dryerOptions: String,
-        soapType: String
-    },
-    other: String
-});
-
-var Restroom = mongoose.model("Restroom", restroomSchema);
 
 mongoose.connect("mongodb://localhost/restroomdatabase");
 
@@ -41,6 +16,37 @@ server.get("/", function(req, res){
     res.sendFile("public/index.html");
 });
 
+//Get and post routes for survey responses.
+server.post("/api/survey", function(req, res){
+    var surveys = new Survey ({
+        interested: req.body.interested,
+        yes: {
+            price: req.body.yes.price,
+            time: req.body.yes.time,
+            other: req.body.yes.other
+        },
+        no: {
+            increaseInterest: req.body.no.increaseInterest,
+            frequency: req.body.no.frequency,
+            other: req.body.no.other
+        }   
+    });
+    
+    surveys.save(function(err){
+        if(err)console.log(err);
+        res.json(surveys);
+    });
+});
+
+server.get("/api/surveys", function(req, res){
+    Survey.find({}, function(err, surveys){
+        if(err)console.log(err);
+        
+        res.json(surveys);
+    });
+});
+
+//Get and post routes for toilet ratings.
 server.post("/api/restrooms", function(req, res){
     var restrooms = new Restroom ({
         locAddress: req.body.locAddress,
@@ -65,8 +71,6 @@ server.post("/api/restrooms", function(req, res){
         },
         other: req.body.other
     });
-    
-    console.log(restrooms);
     
     restrooms.save(function(err){
         if(err) console.log(err);
