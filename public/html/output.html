@@ -1,8 +1,38 @@
-<div ng-repeat="restrooms in rrRating">
+<div ng-repeat="restroom in rrRating">
     <div class="well bs-component">
-        <h3>{{ rrRating.locAddress }}</h3>
-        <h5>{{ rrRating.locDescription }}</h5>
-        <p>{{ rrRating.gender }}</p>
+        <h3>{{ restroom.locAddress }}</h3>
+        <h5>{{ restroom.locDescription }}</h5>
+        <p>{{ restroom.gender }}</p>
+        <div class="bs-component">
+            <table class="table table-striped table-hover">
+                <tbody>
+                    <tr>
+                        <td><b>Sanitation</b></td>
+                        <td>clean: {{ restroom.sanitation.clean }}</td>
+                        <td>smell: {{ restroom.sanitation.smell }}</td>
+                        <td>soap: {{ restroom.sanitation.soap }}</td>
+                        <td>toilet paper: {{ restroom.sanitation.toiletPaper }}</td>
+                        <td>paper towels: {{ restroom.sanitation.paperTowels }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Facilities</b></td>
+                        <td>stalls: {{ restroom.facilities.numOfStalls }}</td>
+                        <td>sinks: {{ restroom.facilities.numOfSinks }}</td>
+                        <td>privacy: {{ restroom.facilities.privacy }}</td>
+                        <td>SPACE HOLDER?</td>
+                        <td>SPACE HOLDER?</td>
+                    </tr>
+                    <tr>
+                        <td><b>Sundries</b></td>
+                        <td>TP type: {{ restroom.sundries.tpType }}</td>
+                        <td>dryer: {{ restroom.sundries.dryerOptions }}</td>
+                        <td>soap: {{ restroom.sundries.soapType }}</td>
+                        <td>SPACE HOLDER?</td>
+                        <td>SPACE HOLDER?</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         
     </div>
 </div>
