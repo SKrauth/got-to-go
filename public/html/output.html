@@ -1,5 +1,8 @@
-<div ng-repeat="(key, value) in rrRating">
+<div ng-repeat="restrooms in rrRating">
     <div class="well bs-component">
+        <h3>{{ rrRating.locAddress }}</h3>
+        <h5>{{ rrRating.locDescription }}</h5>
+        <p>{{ rrRating.gender }}</p>
         
     </div>
 </div>
