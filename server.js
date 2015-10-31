@@ -66,9 +66,19 @@ server.post("/api/restrooms", function(req, res){
         other: req.body.other
     });
     
-    restroom.save(function(err){
+    console.log(restrooms);
+    
+    restrooms.save(function(err){
         if(err) console.log(err);
-        res.json(restroom);
+        res.json(restrooms);
+    });
+});
+
+server.get("/api/restrooms", function(req, res){
+    Restroom.find({}, function(err, restrooms){
+        if(err)console.error(err);
+        
+        res.json(restrooms);
     });
 });
 
