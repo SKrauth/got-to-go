@@ -6,29 +6,47 @@
                 <div class="form-group">
                     <label for="location address" class="col-lg-2 control-label">Location Address</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="locationAddress" placeholder="1234 NW MLK blvd, Springfield, TX">
+                        <input type="text" class="form-control" id="locationAddress" placeholder="1234 NW MLK blvd, Springfield, TX" ng-model="rrRating.locAddress">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="location description" class="col-lg-2 control-label">Location Description</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="locationDescription" placeholder="downstairs at the end of the main entrance hallway">
+                        <input type="text" class="form-control" id="locationDescription" placeholder="downstairs at the end of the main entrance hallway" ng-model="rrRating.locDescription">
                         <span class="help-block">GPS based location is in developement</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Gender</label>
-                    <div class="col-lg-10">
-                        <div class="radio">
+                    <div class="col-lg-10" ng-model="rrRating.gender">
+                        <div class="radio put-in-a-row">
                             <label>
                                 <input type="radio" name="genderMale" id="genderMale" value="male">
                                 Male
                             </label>
                         </div>
-                        <div class="radio">
+                        <div class="radio put-in-a-row">
                             <label>
                                 <input type="radio" name="genderFemale" id="genderFemale" value="female">
                                 Female
+                            </label>
+                        </div>
+                        <div class="radio put-in-a-row">
+                            <label>
+                                <input type="radio" name="genderUnisex" id="genderUnisex" value="unisex">
+                                Unisex
+                            </label>
+                        </div>
+                        <div class="radio put-in-a-row">
+                            <label>
+                                <input type="radio" name="genderFamily" id="genderFamily" value="family">
+                                Family
+                            </label>
+                        </div>
+                        <div class="radio put-in-a-row">
+                            <label>
+                                <input type="radio" name="genderOther" id="genderOther" value="other">
+                                Other
                             </label>
                         </div>
                     </div>
@@ -37,7 +55,7 @@
                     <label class="col-lg-2 control-label">Sanitation</label>
                     <div class="col-lg-2">
                         <label for="clean" class="control-label">Clean?</label>
-                        <select class="form-control input-sm" id="clean">
+                        <select class="form-control input-sm" id="clean" ng-model="rrRating.sanitation.clean">
                             <option value=""></option>
                             <option value="0">0</option>
                             <option value="1">1</option>
@@ -54,7 +72,7 @@
                     </div>
                     <div class="col-lg-2">
                         <label for="smell" class="control-label">Smell?</label>
-                        <select class="form-control input-sm" id="smell">
+                        <select class="form-control input-sm" id="smell" ng-model="rrRating.sanitation.smell">
                             <option value=""></option>
                             <option value="0">0</option>
                             <option value="1">1</option>
@@ -71,7 +89,7 @@
                     </div>
                     <div class="col-lg-2">
                         <label for="soapFill" class="control-label">Soap Filled?</label>
-                        <select class="form-control input-sm" id="soapFill">
+                        <select class="form-control input-sm" id="soapFill" ng-model="rrRating.sanitation.soap">
                             <option value=""></option>
                             <option value="true">yes</option>
                             <option value="false">no</option>
@@ -79,7 +97,7 @@
                     </div>
                     <div class="col-lg-2">
                         <label for="tpFill" class="control-label">TP Filled?</label>
-                        <select class="form-control input-sm" id="tpFill">
+                        <select class="form-control input-sm" id="tpFill" ng-model="rrRating.sanitation.toiletPaper">
                             <option value=""></option>
                             <option value="true">yes</option>
                             <option value="false">no</option>
@@ -87,7 +105,7 @@
                     </div>
                     <div class="col-lg-2">
                         <label for="paperTowelFill" class="control-label">Paper Towels?</label>
-                        <select class="form-control input-sm" name="" id="paperTowelFill">
+                        <select class="form-control input-sm" name="" id="paperTowelFill" ng-model="rrRating.sanitation.paperTowels">
                             <option value=""></option>
                             <option value="true">yes</option>
                             <option value="false">no</option>
@@ -98,15 +116,15 @@
                     <label class="col-lg-2 control-label">Facilities</label>
                     <div class="col-lg-3">
                         <label for="numOfStalls" class="control-label">Number of Stalls</label>
-                        <input type="integer" class="form-control input-sm" id="numOfStalls">
+                        <input type="integer" class="form-control input-sm" id="numOfStalls" ng-model="rrRating.facilities.numOfStalls">
                     </div>
                     <div class="col-lg-3">
                         <label for="numOfSinks" class="control-label">Number of Sinks</label>
-                        <input type="integer" class="form-control input-sm" id="numOfSinks">
+                        <input type="integer" class="form-control input-sm" id="numOfSinks" ng-model="rrRating.facilities.numOfSinks">
                     </div>
                     <div class="col-lg-4">
                         <label for="privacy" class="control-label">Privacy</label>
-                        <select id="privacy" class="form-control input-sm">
+                        <select id="privacy" class="form-control input-sm" ng-model="rrRating.facilities.privacy">
                             <option value=""></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -126,7 +144,7 @@
                     <label class="col-lg-2 control-label">Sundries</label>
                     <div class="col-lg-3">
                         <label for="TPType" class="control-label">TP Type</label>
-                        <select id="TPType" class="form-control input-sm">
+                        <select id="TPType" class="form-control input-sm" ng-model="rrRating.sundries.tpType">
                             <option value=""></option>
                             <option value="low-grade-1ply">Low Grade One Ply</option>
                             <option value="mid-grade-2ply">Mid Grade Two Ply</option>
@@ -135,7 +153,7 @@
                     </div>
                     <div class="col-lg-3">
                         <label for="dryerOptions" class="control-label">Dryer Options</label>
-                        <select id="dryerOptions" class="form-control input-sm">
+                        <select id="dryerOptions" class="form-control input-sm" ng-model="rrRating.sundries.dryerOptions">
                             <option value=""></option>
                             <option value="low-grade-paper">Low Grade Paper</option>
                             <option value="high-grade-paper">High Grade Paper</option>
@@ -146,7 +164,7 @@
                     </div>
                     <div class="col-lg-4">
                         <label for="soapType" class="control-label">Soap Type</label>
-                        <select id="soapType" class="form-control input-sm">
+                        <select id="soapType" class="form-control input-sm" ng-model="rrRating.sundries.soapType">
                             <option value=""></option>
                             <option value="bar-soap">Bar Soap</option>
                             <option value="liquid-soap">Liquid Soap</option>
@@ -160,7 +178,7 @@
                 <div class="form-group">
                     <label for="otherInput" class="control-label col-lg-2">Other</label>
                     <div class="col-lg-10">
-                        <textarea id="otherInput" rows="3" class="form-control"></textarea>
+                        <textarea id="otherInput" rows="3" class="form-control"ng-model="rrRating.other"></textarea>
                         <span class="help-block">Tell us what we missed.</span>
                     </div>
                 </div>
