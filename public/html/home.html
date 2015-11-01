@@ -2,8 +2,8 @@
     <p>Have you ever been out in public and needed to use the restroom but not known where to go? Well we are looking into a solution for you. Our goal is to create a public restroom app that will help you with you're restroom needs. But before we spend the time making an app no one will use we'd like to get some feedback and find out what you want. So fill out our survey, let us know what you want, and then look for our app in the future. Thank you.</p>
 </div>
 
-<form ng-submit="submitSurvey()">
-    <div class="well">
+<div class="well bs-component">
+    <form ng-submit="submitSurvey()">
         <p>Would you use an app to help you find a quality public restroom?</p>
         <div class="radio">
             <label>
@@ -17,9 +17,9 @@
                 No
             </label>
         </div>
-    </div>
+    
 
-    <div class="well bs-component" ng-show="clickOn=='con1'">
+    <div ng-show="clickOn=='con1'">
         <fieldset>
             <legend>So you want this app? Help us build it right.</legend>
             <div class="form-group">
@@ -53,13 +53,10 @@
                     <span class="help-block">Any other feedback would be greatly appreciated.</span>
                 </div>
             </div>
-            <div class="col-lg-9 col-lg-offset-3">    
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
         </fieldset>
     </div>
 
-    <div class="well bs-component" ng-show="clickOn=='con2'">
+    <div ng-show="clickOn=='con2'">
         <fieldset>
             <legend>So this isn't for you? Great! Would you mind sharing more?</legend>
             <div class="form-group">
@@ -81,9 +78,10 @@
                     <span class="help-block">Any other feedback would be greatly appreciated.</span>
                 </div>
             </div>
-            <div class="col-lg-9 col-lg-offset-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
         </fieldset>
     </div>
-</form>
+    <div class="col-lg-9 col-lg-offset-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+</div>

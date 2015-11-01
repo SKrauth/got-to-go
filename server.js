@@ -18,7 +18,7 @@ server.get("/", function(req, res){
 
 //Get and post routes for survey responses.
 server.post("/api/survey", function(req, res){
-    var surveys = new Survey ({
+    var survey = new Survey ({
         interested: req.body.interested,
         yes: {
             price: req.body.yes.price,
@@ -32,13 +32,13 @@ server.post("/api/survey", function(req, res){
         }   
     });
     
-    surveys.save(function(err){
+    survey.save(function(err){
         if(err)console.log(err);
-        res.json(surveys);
+        res.json(survey);
     });
 });
 
-server.get("/api/surveys", function(req, res){
+server.get("/api/survey", function(req, res){
     Survey.find({}, function(err, surveys){
         if(err)console.log(err);
         
